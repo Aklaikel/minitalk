@@ -1,3 +1,0 @@
-# minitalk
-the subject:
-
