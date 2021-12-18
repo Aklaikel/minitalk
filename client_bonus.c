@@ -6,7 +6,7 @@
 /*   By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:44:15 by aklaikel          #+#    #+#             */
-/*   Updated: 2021/12/18 17:48:00 by aklaikel         ###   ########.fr       */
+/*   Updated: 2021/12/18 23:17:00 by aklaikel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ void	send_char(char c, int pid)
 	i = 7;
 	while (i >= 0)
 	{
-		usleep(500);
 		kill(pid, (c >> i & 1) + SIGUSR1);
+		usleep(500);
 		i--;
 	}
 }
 
 void	handler(int sig)
 {
+	(void)sig;
 	write(1, "Server: successfully recieved\n", 29);
 	exit(0);
 }
@@ -40,7 +41,7 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac != 3)
 	{
-		write(2, "false arguments", 15);
+		write(2, "not enough arguments\n", 30);
 		return (0);
 	}
 	signal(SIGUSR1, handler);
@@ -52,5 +53,6 @@ int	main(int ac, char **av)
 		i++;
 	}
 	send_char(0, pid);
-	pause ();
+	while (1)
+		sleep(1);
 }

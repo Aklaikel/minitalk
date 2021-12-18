@@ -6,7 +6,7 @@
 #    By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/17 12:45:06 by aklaikel          #+#    #+#              #
-#    Updated: 2021/12/18 18:25:33 by aklaikel         ###   ########.fr        #
+#    Updated: 2021/12/18 23:18:26 by aklaikel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ CLIENT_SRCS_BONUS = client_bonus.c srcs/ft_atoi.c srcs/myprint.c
 SERVER_OBJS = $(SERVER_SRCS:.c=.o)
 CLIENT_OBJS = $(CLIENT_SRCS:.c=.o)
 
-SERVER_OBJS_BONUS = $(SERVER_SRCS:.c=.o)
-CLIENT_OBJS_BONUS = $(CLIENT_SRCS:.c=.o)
+SERVER_OBJS_BONUS = $(SERVER_SRCS_BONUS:.c=.o)
+CLIENT_OBJS_BONUS = $(CLIENT_SRCS_BONUS:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -39,14 +39,14 @@ client:$(CLIENT_OBJS)
 
 server:$(SERVER_OBJS)
 	@$(CC) $(CFLAGS) $(SERVER_OBJS) -o server
-	@echo "serverbonus created successfully"
+	@echo "server created successfully"
 
 client_bonus:$(CLIENT_OBJS_BONUS)
 	@$(CC) $(CFLAGS) $(CLIENT_OBJS_BONUS) -o client_bonus
 	@echo "client bonus created successfully"
 
-server_bonus:$(SERVER_OBJS)
-	@$(CC) $(CFLAGS) $(SERVER_OBJS) -o server_bonus
+server_bonus:$(SERVER_OBJS_BONUS)
+	@$(CC) $(CFLAGS) $(SERVER_OBJS_BONUS) -o server_bonus
 	@echo "server bonus created successfully"
 
 %.o:%.c

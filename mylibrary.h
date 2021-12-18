@@ -6,7 +6,7 @@
 /*   By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:44:58 by aklaikel          #+#    #+#             */
-/*   Updated: 2021/12/18 16:24:04 by aklaikel         ###   ########.fr       */
+/*   Updated: 2021/12/18 18:49:43 by aklaikel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ struct	s_recieved
 	char	c;
 	int		pid;
 }		t_recieved;
+
 void	ft_putchar(char c);
 void	ft_putnbr(int nb);
 int		ft_atoi(char *str);

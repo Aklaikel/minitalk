@@ -6,7 +6,7 @@
 /*   By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:44:32 by aklaikel          #+#    #+#             */
-/*   Updated: 2021/12/18 17:59:30 by aklaikel         ###   ########.fr       */
+/*   Updated: 2021/12/19 00:15:36 by aklaikel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ void	handler(int sig, siginfo_t *info, void *context)
 	t_recieved.n++;
 	if (t_recieved.n == 8)
 	{
-		if (t_recieved.c == 0)
-			kill(info->si_pid, SIGUSR1);
-		else
-			write(1, &t_recieved.c, 1);
+		write(1, &t_recieved.c, 1);
 		t_recieved.n = 0;
 		t_recieved.c = 0;
 	}
