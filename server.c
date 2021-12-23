@@ -6,11 +6,11 @@
 /*   By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:58:34 by aklaikel          #+#    #+#             */
-/*   Updated: 2021/12/18 17:59:11 by aklaikel         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:33:52 by aklaikel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"mylibrary.h"
+#include"minitalk.h"
 
 void	reset(int pid)
 {
@@ -28,10 +28,7 @@ void	handler(int sig, siginfo_t *info, void *context)
 	t_recieved.n++;
 	if (t_recieved.n == 8)
 	{
-		if (t_recieved.c == 0)
-			kill(info->si_pid, SIGUSR1);
-		else
-			write(1, &t_recieved.c, 1);
+		write(1, &t_recieved.c, 1);
 		t_recieved.n = 0;
 		t_recieved.c = 0;
 	}
@@ -49,5 +46,7 @@ int	main(void)
 	ft_putnbr(getpid());
 	ft_putchar('\n');
 	while (1)
-		sleep(1);
+	{
+		pause();
+	}
 }

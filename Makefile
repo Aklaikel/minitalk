@@ -6,12 +6,12 @@
 #    By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/17 12:45:06 by aklaikel          #+#    #+#              #
-#    Updated: 2021/12/18 23:18:26 by aklaikel         ###   ########.fr        #
+#    Updated: 2021/12/23 17:28:38 by aklaikel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-INC = mylibrary.h
+INC = minitalk.h
 
 SERVER_SRCS = server.c srcs/myprint.c
 CLIENT_SRCS = client.c srcs/ft_atoi.c srcs/myprint.c
@@ -29,7 +29,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf 
 
-all: server client server_bonus client_bonus
+all: server client 
 
 bonus: server_bonus client_bonus
 
@@ -42,11 +42,11 @@ server:$(SERVER_OBJS)
 	@echo "server created successfully"
 
 client_bonus:$(CLIENT_OBJS_BONUS)
-	@$(CC) $(CFLAGS) $(CLIENT_OBJS_BONUS) -o client_bonus
+	@$(CC) $(CFLAGS) $(CLIENT_OBJS_BONUS) -o client
 	@echo "client bonus created successfully"
 
 server_bonus:$(SERVER_OBJS_BONUS)
-	@$(CC) $(CFLAGS) $(SERVER_OBJS_BONUS) -o server_bonus
+	@$(CC) $(CFLAGS) $(SERVER_OBJS_BONUS) -o server
 	@echo "server bonus created successfully"
 
 %.o:%.c
@@ -58,7 +58,9 @@ clean:
 	@echo "object bonus files removed successfully"
 
 fclean:clean
-	@$(RM) client server client_bonus server_bonus
+	@$(RM) client server
 	@echo "client/client_bonus and server/server_bonus removed successfully"
 
 re: fclean all
+
+.PHONY: all client server_bonus client_bonus clean fclean re

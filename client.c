@@ -6,11 +6,11 @@
 /*   By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 22:13:37 by aklaikel          #+#    #+#             */
-/*   Updated: 2021/12/18 18:08:53 by aklaikel         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:34:18 by aklaikel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"mylibrary.h"
+#include"minitalk.h"
 
 void	send_char(char c, int pid)
 {
@@ -44,5 +44,4 @@ int	main(int ac, char **av)
 		send_char(s[i], pid);
 		i++;
 	}
-	send_char(0, pid);
 }

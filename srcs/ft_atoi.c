@@ -6,11 +6,11 @@
 /*   By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:35:04 by aklaikel          #+#    #+#             */
-/*   Updated: 2021/12/18 16:13:12 by aklaikel         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:29:00 by aklaikel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../mylibrary.h"
+#include"../minitalk.h"
 
 int	ft_atoi(char	*str)
 {

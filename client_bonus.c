@@ -6,11 +6,11 @@
 /*   By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:44:15 by aklaikel          #+#    #+#             */
-/*   Updated: 2021/12/18 23:17:00 by aklaikel         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:28:54 by aklaikel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"mylibrary.h"
+#include"minitalk.h"
 
 void	send_char(char c, int pid)
 {
@@ -44,15 +44,13 @@ int	main(int ac, char **av)
 		write(2, "not enough arguments\n", 30);
 		return (0);
 	}
-	signal(SIGUSR1, handler);
 	pid = ft_atoi(av[1]);
 	s = av[2];
+	signal(SIGUSR1, handler);
 	while (s[i])
 	{
 		send_char(s[i], pid);
 		i++;
 	}
 	send_char(0, pid);
-	while (1)
-		sleep(1);
 }

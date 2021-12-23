@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   myprint.c                                          :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklaikel <aklaikel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/18 15:38:36 by aklaikel          #+#    #+#             */
-/*   Updated: 2021/12/23 17:29:05 by aklaikel         ###   ########.fr       */
+/*   Created: 2021/12/18 15:44:58 by aklaikel          #+#    #+#             */
+/*   Updated: 2021/12/23 17:28:03 by aklaikel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#ifndef MINITALK_H
+# define MINITALK_H
+# include <unistd.h>
+# include <signal.h>
+# include <stdlib.h>
 
-void	ft_putchar(char c)
+struct	s_recieved
 {
-	write(1, &c, 1);
-}
+	int		n;
+	char	c;
+	int		pid;
+}		t_recieved;
 
-void	ft_putnbr(int nb)
-{
-	if (nb < 10)
-	{
-		ft_putchar(nb + '0');
-		return ;
-	}
-	ft_putnbr(nb / 10);
-	ft_putnbr(nb % 10);
-}
+void	ft_putchar(char c);
+void	ft_putnbr(int nb);
+int		ft_atoi(char *str);
+
+#endif
