@@ -49,7 +49,7 @@ server_bonus:$(SERVER_OBJS_BONUS)
 	@$(CC) $(CFLAGS) $(SERVER_OBJS_BONUS) -o server
 	@echo "server bonus created successfully"
 
-%.o:%.c
+%.o:%.c $(INC)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
