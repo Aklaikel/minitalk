@@ -63,4 +63,3 @@ fclean:clean
 
 re: fclean all
 
-.PHONY: all client server_bonus client_bonus clean fclean re
